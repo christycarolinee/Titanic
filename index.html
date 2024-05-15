@@ -1,0 +1,1023 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 5 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Aptos;
+	panose-1:2 11 0 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Menlo;
+	panose-1:2 11 6 9 3 8 4 2 2 4;}
+@font-face
+	{font-family:"\@PMingLiU";
+	panose-1:2 1 6 1 0 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoChpDefault
+	{font-family:"Aptos",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:115%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.0pt 842.0pt;
+	margin:72.0pt 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-ID style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif'>Exploring
+Titanic Dataset with Pandas</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Times New Roman",serif'>1.
+Import the Required Libraries</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>You should
+import Pandas (import pandas as pd) and Matplotlib (import matplotlib.pyplot as
+plt) for data manipulation and visualization.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#C586C0'>import</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#4EC9B0'>pandas</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#C586C0'>as</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#4EC9B0'>pd</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#C586C0'>import</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#4EC9B0'>matplotlib</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#4EC9B0'>pyplot</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#C586C0'>as</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#4EC9B0'>plt</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command</span></p>
+
+<p class=MsoNormal style='line-height:normal'><span style='font-size:10.0pt;
+font-family:"Times New Roman",serif'>Python 3.12.2 (v3.12.2:6abddd9f6a, Feb  6
+2024, 17:02:06) [Clang 13.0.0 (clang-1300.0.29.30)] on Darwin</span></p>
+
+<p class=MsoNormal style='line-height:normal'><span style='font-size:10.0pt;
+font-family:"Times New Roman",serif'>Type &quot;help&quot;,
+&quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more
+information.</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+"Times New Roman",serif'>&gt;&gt;&gt;&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To import
+package, we use import command. We need to use import pandas and import matplotlib.pyplot</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>For the
+output command we use the python 3.12.2 </span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Times New Roman",serif'>2. Load
+the Dataset</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Load the
+Titanic dataset from a CSV file named 'titanic.csv' into a Pandas DataFrame.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#4EC9B0'>pd</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>read_csv</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>&quot;titanic.csv&quot;</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>print</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>)</span></p>
+
+<p class=MsoNormal><span style='font-size:5.5pt;line-height:115%;font-family:
+"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&gt;&gt;&gt; df = pd.read_csv(&quot;titanic.csv&quot;)</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&gt;&gt;&gt; print(df)</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>     PassengerId  Survived 
+Pclass                                               Name     Sex   Age  SibSp 
+Parch            Ticket     Fare Cabin Embarked</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>0              1         0       3                            Braund,
+Mr. Owen Harris    male  22.0      1      0         A/5 21171   7.2500  
+NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>1              2         1       1  Cumings, Mrs. John Bradley (Florence
+Briggs Th...  female  38.0      1      0          PC 17599  71.2833  
+C85        C</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>2              3         1       3                            
+Heikkinen, Miss. Laina  female  26.0      0      0  STON/O2. 3101282   7.9250  
+NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>3              4         1       1       Futrelle, Mrs. Jacques Heath
+(Lily May Peel)  female  35.0      1      0            113803  53.1000 
+C123        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>4              5         0       3                           Allen, Mr.
+William Henry    male  35.0      0      0            373450   8.0500  
+NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>..           ...       ...    
+...                                                ...     ...   ...    ...   
+...               ...      ...   ...      ...</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>886          887         0       2                             
+Montvila, Rev. Juozas    male  27.0      0      0            211536  13.0000  
+NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>887          888         1       1                       Graham, Miss.
+Margaret Edith  female  19.0      0      0            112053  30.0000  
+B42        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>888          889         0       3           Johnston, Miss. Catherine
+Helen &quot;Carrie&quot;  female   NaN      1      2        W./C. 6607 
+23.4500   NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>889          890         1       1                              Behr,
+Mr. Karl Howell    male  26.0      0      0            111369  30.0000 
+C148        C</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>890          891         0       3                               
+Dooley, Mr. Patrick    male  32.0      0      0            370376   7.7500  
+NaN        Q</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>[891 rows x 12 columns]</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&gt;&gt;&gt;&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To load
+the dataset, we use load command. We need to load the dataset from the csv file
+name “titanic.csv” into the Pandas DataFrame.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To get the
+output command we need to write print, so that they can show the dataset from
+the file. </span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Times New Roman",serif'>3. Data
+Exploration</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Display
+the first few rows of the dataset to understand its structure.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>head</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command </span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&gt;&gt;&gt; df.head()</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>   PassengerId  Survived 
+Pclass                                               Name     Sex   Age  SibSp 
+Parch            Ticket     Fare Cabin Embarked</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>0            1         0       3                            Braund, Mr.
+Owen Harris    male  22.0      1      0         A/5 21171   7.2500   NaN       
+S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>1            2         1       1  Cumings, Mrs. John Bradley (Florence
+Briggs Th...  female  38.0      1      0          PC 17599  71.2833  
+C85        C</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>2            3         1       3                             Heikkinen,
+Miss. Laina  female  26.0      0      0  STON/O2. 3101282   7.9250   NaN       
+S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>3            4         1       1       Futrelle, Mrs. Jacques Heath
+(Lily May Peel)  female  35.0      1      0            113803  53.1000 
+C123        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>4            5         0       3                           Allen, Mr.
+William Henry    male  35.0      0      0            373450   8.0500  
+NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&gt;&gt;&gt;&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To understand
+the structure of the first row of the dataset, we use df.head()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To get the
+output we need to run the system so we can get the df.head() data.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Print
+information about the columns and their data types.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>info</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'>&gt;&gt;&gt; df.info()</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'>&lt;class 'pandas.core.frame.DataFrame'&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'>RangeIndex: 891 entries, 0 to 890</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'>Data columns (total 12 columns):</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> #   Column       Non-Null Count  Dtype  </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'>---  ------       --------------  -----  </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 0   PassengerId  891 non-null    int64  </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 1   Survived     891 non-null    int64  </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 2   Pclass       891 non-null    int64  </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 3   Name         891 non-null    object </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 4   Sex          891 non-null    object </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 5   Age          714 non-null    float64</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 6   SibSp        891 non-null    int64  </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 7   Parch        891 non-null    int64  </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 8   Ticket       891 non-null    object </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 9   Fare         891 non-null    float64</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 10  Cabin        204 non-null    object </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'> 11  Embarked     889 non-null    object </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'>dtypes: float64(2), int64(5), object(5)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'>memory usage: 83.7+ KB</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To Print
+information about the columns and their data types, we need to use df.info()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To get the
+output we need to run the system then got the data </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:115%;font-family:
+Menlo'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Show
+summary statistics for numerical columns (e.g., mean, min, max, etc.).</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>describe</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>&gt;&gt;&gt; df.describe()</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>       PassengerId    Survived      Pclass         Age       SibSp      
+Parch        Fare</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>count   891.000000  891.000000  891.000000  714.000000  891.000000 
+891.000000  891.000000</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>mean    446.000000    0.383838    2.308642   29.699118    0.523008   
+0.381594   32.204208</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>std     257.353842    0.486592    0.836071   14.526497    1.102743   
+0.806057   49.693429</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>min       1.000000    0.000000    1.000000    0.420000    0.000000   
+0.000000    0.000000</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>25%     223.500000    0.000000    2.000000   20.125000    0.000000   
+0.000000    7.910400</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>50%     446.000000    0.000000    3.000000   28.000000    0.000000   
+0.000000   14.454200</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>75%     668.500000    1.000000    3.000000   38.000000    1.000000   
+0.000000   31.000000</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>max     891.000000    1.000000    3.000000   80.000000    8.000000   
+6.000000  512.329200</span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+Menlo'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>to get the
+summary statistic for the numerical column (max,min, mean,median,etc), we can
+use df.describe()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>then for
+the output we need to run the system so we can get the data </span></p>
+
+<p class=MsoNormal><span style='font-size:8.0pt;line-height:115%;font-family:
+"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Times New Roman",serif'>4. Data
+Cleaning</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Identify
+and handle missing values in the dataset (e.g., fill missing age values with
+median).</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>fillna</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>median</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>numeric_only</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#569CD6'>True</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>).</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>round</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#B5CEA8'>1</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>), </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>inplace</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#569CD6'>True</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>print</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>)</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&gt;&gt;&gt; print(df)</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>     PassengerId  Survived 
+Pclass                                               Name     Sex   Age  SibSp 
+Parch            Ticket     Fare Cabin Embarked</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>0              1         0       3                            Braund,
+Mr. Owen Harris    male  22.0      1      0         A/5 21171   7.2500  
+NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>1              2         1       1  Cumings, Mrs. John Bradley (Florence
+Briggs Th...  female  38.0      1      0          PC 17599  71.2833  
+C85        C</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>2              3         1       3                            
+Heikkinen, Miss. Laina  female  26.0      0      0  STON/O2. 3101282   7.9250  
+NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>3              4         1       1       Futrelle, Mrs. Jacques Heath
+(Lily May Peel)  female  35.0      1      0            113803  53.1000 
+C123        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>4              5         0       3                           Allen, Mr.
+William Henry    male  35.0      0      0            373450   8.0500  
+NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>..           ...       ...    
+...                                                ...     ...   ...    ...   
+...               ...      ...   ...      ...</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>886          887         0       2                             
+Montvila, Rev. Juozas    male  27.0      0      0            211536  13.0000  
+NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>887          888         1       1                       Graham, Miss.
+Margaret Edith  female  19.0      0      0            112053  30.0000  
+B42        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>888          889         0       3           Johnston, Miss. Catherine
+Helen &quot;Carrie&quot;  female  28.0      1      2        W./C. 6607 
+23.4500   NaN        S</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>889          890         1       1                              Behr,
+Mr. Karl Howell    male  26.0      0      0            111369  30.0000 
+C148        C</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>890          891         0       3                               
+Dooley, Mr. Patrick    male  32.0      0      0            370376   7.7500  
+NaN        Q</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>[891 rows x 12 columns]</span></p>
+
+<p class=MsoNormal><span style='font-size:4.0pt;line-height:115%;font-family:
+Menlo'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To identify
+and handle the missing value in the dataset and fill the missing age with median,
+we need to use df.fillna()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Perform
+any necessary data transformations or cleaning steps.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>dropna</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command </span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>df.dropna()</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>     PassengerId  Survived 
+Pclass                                               Name     Sex   Age  SibSp 
+Parch    Ticket     Fare        Cabin Embarked</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>1              2         1       1 
+Cumings, Mrs. John Bradley (Florence Briggs Th...  female  38.0      1      0 
+PC 17599  71.2833          C85        C</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>3              4         1       1      
+Futrelle, Mrs. Jacques Heath (Lily May Peel)  female  35.0      1      0   
+113803  53.1000         C123        S</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>6              7         0      
+1                            McCarthy, Mr. Timothy J    male  54.0      0     
+0     17463  51.8625          E46        S</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>10            11         1      
+3                    Sandstrom, Miss. Marguerite Rut  female   4.0      1     
+1   PP 9549  16.7000           G6        S</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>11            12         1      
+1                           Bonnell, Miss. Elizabeth  female  58.0      0     
+0    113783  26.5500         C103        S</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>..           ...       ...    
+...                                                ...     ...   ...    ...   
+...       ...      ...          ...      ...</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>871          872         1       1  
+Beckwith, Mrs. Richard Leonard (Sallie Monypeny)  female  47.0      1     
+1     11751  52.5542          D35        S</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>872          873         0      
+1                           Carlsson, Mr. Frans Olof    male  33.0      0     
+0       695   5.0000  B51 B53 B55        S</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>879          880         1       1     
+Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)  female  56.0      0      1    
+11767  83.1583          C50        C</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>887          888         1      
+1                       Graham, Miss. Margaret Edith  female  19.0      0     
+0    112053  30.0000          B42        S</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>889          890         1      
+1                              Behr, Mr. Karl Howell    male  26.0      0     
+0    111369  30.0000         C148        C</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>[202 rows x 12 columns]</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>&gt;&gt;&gt;&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-size:4.0pt;
+line-height:115%;font-family:Menlo'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-family:"Times New Roman",serif'>To
+clean the data set and fill the missing number we use df.dropna()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Times New Roman",serif'>5. Data
+Analysis</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Calculate
+and display the count of passengers by gender.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command </span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>gender_counts</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>[</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Sex'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>].</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>value_counts</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>print</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>gender_counts</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>)</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command </span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&gt;&gt;&gt;
+print(gender_counts)</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Sex</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>male     
+577</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>female   
+314</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Name:
+count, dtype: int64</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To calculate
+and display the count of passengers by gender, we need to use value_count()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Compute
+the average age of passengers.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>[</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Age'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>].</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>mean</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command </span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-family:"Times New Roman",serif'>&gt;&gt;&gt;
+df['Age'].mean()</span></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><span style='font-family:"Times New Roman",serif'>29.36158249158249</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To compute
+the the average age of the passengers we need to use mean()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Determine
+the survival rate by passenger class.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>[[</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Pclass'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Survived'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>]].</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>groupby</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Pclass'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>as_index</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#569CD6'>False</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>).</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>mean</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command </span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&gt;&gt;&gt;
+df[['Pclass', 'Survived']].groupby('Pclass', as_index=False).mean()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>   Pclass 
+Survived</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>0       1 
+0.629630</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>1       2 
+0.472826</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>2       3 
+0.242363</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&gt;&gt;&gt;&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To Determine
+the survival rate by passenger class we need to use the groupby()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Times New Roman",serif'>6. Data
+Visualization</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Create a
+bar chart to visualize the survival rate by passenger class.</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Python command</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>[[</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Pclass'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Survived'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>]].</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>groupby</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Pclass'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>as_index</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#569CD6'>False</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>).</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>mean</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#4EC9B0'>pd</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#4EC9B0'>DataFrame</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>({</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>    </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Pclass'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>: [</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'1'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'2'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'3'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>],</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>    </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Survived'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'> : [</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#B5CEA8'>0.629630</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#B5CEA8'>0.472826</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#B5CEA8'>0.242363</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>]</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>})</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>df</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>plot</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>(</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>x</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Pclass'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>y</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'Survived'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>, </span><span
+style='font-size:9.0pt;font-family:Menlo;color:#9CDCFE'>kind</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#D4D4D4'>=</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CE9178'>'bar'</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;line-height:13.5pt;background:#1F1F1F'><span
+style='font-size:9.0pt;font-family:Menlo;color:#4EC9B0'>plt</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>.</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#DCDCAA'>show</span><span
+style='font-size:9.0pt;font-family:Menlo;color:#CCCCCC'>()</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-18.0pt'><span style='font-family:
+Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-family:"Times New Roman",serif'>Output command </span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'><img
+width=451 height=331 id="Picture 1" src="index.fld/image001.png"></span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>To Create
+a bar chart to visualize the survival rate by passenger class, we need to use
+the df.plot bar</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Add
+appropriate labels and a title to the chart.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Times New Roman",serif'>7.
+Conclusion</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Summarize
+your findings or insights gained from analyzing the Titanic dataset.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'> From exploring
+all the titanic dataset with pandas, I can gain a lot of insight and things to
+do with pandas and with the pandas we can also indentified and filled the
+missing data.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>Reflect on
+the importance of data cleaning and exploration in data analysis.</span></p>
+
+<p class=MsoNormal><span style='font-family:"Times New Roman",serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
